@@ -768,24 +768,21 @@
             submitBtn.disabled = true;
             
             try {
-                // TODO: Replace with your actual Web App URL from Apps Script deployment
+                // Use FormData method (CORS compatible with Google Apps Script)
+                const formData = new FormData();
+                formData.append('data', JSON.stringify(data));
+                
                 const response = await fetch('https://script.google.com/macros/s/AKfycbxeathP43lU4SM_ZfCtdKCdvr6pRdYz6nWj74CHSVsVaAtvDvT4bt8lSQojOqX-FPuT/exec', {
                     method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
+                    body: formData
                 });
                 
-                if (response.ok) {
-                    showMessage('✅ Survey submitted successfully! Thank you for your response.', 'success');
-                    resetForm();
-                    
-                    // Scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    showMessage('❌ Error submitting survey. Please try again.', 'error');
-                }
+                showMessage('✅ Survey submitted successfully! Thank you for your response.', 'success');
+                resetForm();
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
             } catch (error) {
                 console.error('Error:', error);
                 showMessage('❌ Network error. Please check your connection and try again.', 'error');
