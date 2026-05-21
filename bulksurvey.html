@@ -491,11 +491,88 @@
         <div id="message" class="message"></div>
         
         <form id="surveyForm">
+            <!-- Cold Room Location Section -->
+            <div class="form-section">
+                <div class="section-title">Cold Room Location</div>
+                
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label class="required">Select Cold Room Location</label>
+                        <select id="cold_room_location" required>
+                            <option value="">-- Select Cold Room Location --</option>
+                            <option value="Balangir City Market">Balangir City Market</option>
+                            <option value="Desil">Desil</option>
+                            <option value="RMC Behera Market">RMC Behera Market</option>
+                            <option value="RMC Sarandapali">RMC Sarandapali</option>
+                            <option value="Boudh Main Market Yard">Boudh Main Market Yard</option>
+                            <option value="Athagarh NAC">Athagarh NAC</option>
+                            <option value="Nistipur">Nistipur</option>
+                            <option value="Dudhianali">Dudhianali</option>
+                            <option value="Beguniapada">Beguniapada</option>
+                            <option value="Ambapua">Ambapua</option>
+                            <option value="Bahadapada">Bahadapada</option>
+                            <option value="RMC Bhanjanagar Market Yard">RMC Bhanjanagar Market Yard</option>
+                            <option value="RMC Buguda Market Yard">RMC Buguda Market Yard</option>
+                            <option value="Chatrapur Market">Chatrapur Market</option>
+                            <option value="RMC Kalabada Market Yard">RMC Kalabada Market Yard</option>
+                            <option value="RMC Digapahandi Market Yard">RMC Digapahandi Market Yard</option>
+                            <option value="Ganjam">Ganjam</option>
+                            <option value="Kabisuryanagar">Kabisuryanagar</option>
+                            <option value="Kolasingi">Kolasingi</option>
+                            <option value="Jharsuguda">Jharsuguda</option>
+                            <option value="Bazarpada">Bazarpada</option>
+                            <option value="Dharmagarh Main Market Yard">Dharmagarh Main Market Yard</option>
+                            <option value="Junagarh New Market Yard">Junagarh New Market Yard</option>
+                            <option value="Daily Market Kesinga">Daily Market Kesinga</option>
+                            <option value="Baradapala">Baradapala</option>
+                            <option value="Kathakaranjia">Kathakaranjia</option>
+                            <option value="Madarangajodi">Madarangajodi</option>
+                            <option value="Mukuna">Mukuna</option>
+                            <option value="Nuagaon (Narsinghpur)">Nuagaon (Narsinghpur)</option>
+                            <option value="Raisuan">Raisuan</option>
+                            <option value="Ratanpur">Ratanpur</option>
+                            <option value="Tikarapada">Tikarapada</option>
+                            <option value="Tulasichaura">Tulasichaura</option>
+                            <option value="Damana Market">Damana Market</option>
+                            <option value="2nd Daily Market">2nd Daily Market</option>
+                            <option value="Ghatabhagra">Ghatabhagra</option>
+                            <option value="Malimarla">Malimarla</option>
+                            <option value="Sandhenkia">Sandhenkia</option>
+                            <option value="Akhapolan">Akhapolan</option>
+                            <option value="Baghiatangar">Baghiatangar</option>
+                            <option value="Tikhia">Tikhia</option>
+                            <option value="Chapaldihi">Chapaldihi</option>
+                            <option value="Nabarangpur Market Yard">Nabarangpur Market Yard</option>
+                            <option value="Umerkote Sub-Market Yard">Umerkote Sub-Market Yard</option>
+                            <option value="Bhojpur">Bhojpur</option>
+                            <option value="Kuchinda">Kuchinda</option>
+                            <option value="T.Niktimal">T.Niktimal</option>
+                            <option value="Charmal">Charmal</option>
+                            <option value="Bareipali">Bareipali</option>
+                            <option value="Kalapathar Sub-Market Yard">Kalapathar Sub-Market Yard</option>
+                            <option value="Kardega">Kardega</option>
+                            <option value="Kuarmunda">Kuarmunda</option>
+                            <option value="Bhelluadihi">Bhelluadihi</option>
+                            <option value="Domposh">Domposh</option>
+                            <option value="Khariapada">Khariapada</option>
+                            <option value="Kadalidhipa">Kadalidhipa</option>
+                            <option value="Kansar">Kansar</option>
+                            <option value="Rajpur">Rajpur</option>
+                            <option value="Sundargarh">Sundargarh</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Surveyor Details Section -->
             <div class="form-section">
                 <div class="section-title">Surveyor Details</div>
                 
                 <div class="form-row three-column">
+                    <div class="form-group">
+                        <label class="required">Survey Date</label>
+                        <input type="date" id="survey_date" required>
+                    </div>
                     <div class="form-group">
                         <label class="required">Surveyor Name</label>
                         <input type="text" id="surveyor_name" placeholder="Enter surveyor name" required>
@@ -504,10 +581,6 @@
                         <label class="required">Surveyor Phone</label>
                         <input type="tel" id="surveyor_phone" placeholder="(XXX) XXX-XXXX" required pattern="[0-9\s\-\(\)]+" maxlength="15">
                         <div class="phone-hint">Format: (XXX) XXX-XXXX or 10-digit number</div>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Survey Date</label>
-                        <input type="date" id="survey_date" required>
                     </div>
                 </div>
             </div>
@@ -708,9 +781,10 @@
             e.preventDefault();
             
             // Validate required fields
-            if (!document.getElementById('surveyor_name').value ||
-                !document.getElementById('surveyor_phone').value ||
+            if (!document.getElementById('cold_room_location').value ||
                 !document.getElementById('survey_date').value ||
+                !document.getElementById('surveyor_name').value ||
+                !document.getElementById('surveyor_phone').value ||
                 !document.getElementById('institution_name').value ||
                 !document.getElementById('institution_type').value ||
                 !document.getElementById('contact_name').value ||
@@ -751,9 +825,10 @@
             
             const data = {
                 timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+                cold_room_location: document.getElementById('cold_room_location').value,
+                survey_date: document.getElementById('survey_date').value,
                 surveyor_name: document.getElementById('surveyor_name').value,
                 surveyor_phone: document.getElementById('surveyor_phone').value,
-                survey_date: document.getElementById('survey_date').value,
                 institution_name: document.getElementById('institution_name').value,
                 institution_location: document.getElementById('institution_location').value,
                 institution_type: document.getElementById('institution_type').value,
